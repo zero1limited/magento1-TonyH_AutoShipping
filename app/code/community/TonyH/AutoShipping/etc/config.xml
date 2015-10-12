@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Auto Shipping Pro
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category    TonyH
+ * @package     TonyH_AutoShipping
+ * @author      Tony Hou
+ * @copyright   Copyright (c) 2012 TonyH (http://tonyhou.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <TonyH_AutoShipping>
+            <version>1.0.4</version>
+        </TonyH_AutoShipping>
+    </modules>
+    <global>
+        <models>
+            <tonyh_autoshipping>
+                <class>TonyH_AutoShipping_Model</class>
+            </tonyh_autoshipping>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <checkout_cart_update_items_after>
+                <observers>
+                    <tonyh_autoshipping_observer>
+                        <type>singleton</type>
+                        <class>tonyh_autoshipping/observer</class>
+                        <method>addShipping</method>
+                    </tonyh_autoshipping_observer>
+                </observers>
+            </checkout_cart_update_items_after>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <tonyh_autoshipping_observer>
+                        <type>singleton</type>
+                        <class>tonyh_autoshipping/observer</class>
+                        <method>addShipping</method>
+                    </tonyh_autoshipping_observer>
+                </observers>
+            </checkout_cart_product_add_after>
+            <sales_quote_remove_item>
+                <observers>
+                    <tonyh_autoshipping_observer>
+                        <type>singleton</type>
+                        <class>tonyh_autoshipping/observer</class>
+                        <method>addShipping</method>
+                    </tonyh_autoshipping_observer>
+                </observers>
+            </sales_quote_remove_item>
+            <controller_action_postdispatch_checkout_cart_estimatePost>
+                <observers>
+                    <tonyh_autoshipping_observer>
+                        <type>singleton</type>
+                        <class>tonyh_autoshipping/observer</class>
+                        <method>addShipping</method>
+                    </tonyh_autoshipping_observer>
+                </observers>
+            </controller_action_postdispatch_checkout_cart_estimatePost>
+            <customer_login>
+                <observers>
+                    <tonyh_autoshipping_observer>
+                        <type>singleton</type>
+                        <class>tonyh_autoshipping/observer</class>
+                        <method>addShipping</method>
+                    </tonyh_autoshipping_observer>
+                </observers>
+            </customer_login>      
+        </events>
+    </frontend>
+</config>
